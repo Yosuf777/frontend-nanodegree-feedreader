@@ -4,7 +4,7 @@ This project is aimed at testing the web-based application that reads RSS feeds,
 
 ## How to run the tests
 
-1. Download the zip file using the 'Clone' or 'Download' option in https://github.com/gayakrish/frontend-nanodegree-feedreader
+1. Download the zip file using the 'Clone' or 'Download' option in https://github.com/Yosuf777/frontend-nanodegree-feedreader
 2. Extract the zip files and open index.html in the browser
 3. After the feeds are loaded, at the bottom of the page you will be able to see the results of the test cases run in Jasmine
 
