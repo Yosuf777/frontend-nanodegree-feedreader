@@ -62,7 +62,7 @@ $(function() {
      * hiding/showing of the menu element.
      */
     it('should be hidden by default', function() {
-      expect($('body').hasClass('menu-hidden')).toBe(true);
+      expect($('body').hasClass('menu-hidden')).toBeTruthy();
     });
     /*  Write a test that ensures the menu changes
      * visibility when the menu icon is clicked. This test
@@ -71,10 +71,10 @@ $(function() {
      */
     it('changes visibility when menu icon is clicked', function() {
       $('.menu-icon-link').trigger('click');
-      expect($('body').hasClass('menu-hidden')).toBe(false);
+      expect($('body').hasClass('menu-hidden')).toBeFalsy();
 
       $('.menu-icon-link').trigger('click');
-      expect($('body').hasClass('menu-hidden')).toBe(true);
+      expect($('body').hasClass('menu-hidden')).toBeTruthy();
     });
 
   });
@@ -102,8 +102,8 @@ $(function() {
      * by the loadFeed function that the content actually changes.
      * Remember, loadFeed() is asynchronous.
      */
-    it('changes the content when a new feed is loaded', function(done) {
-      loadFeed(2, function() {
+    it('ensures when a new feed is loaded', function(done) {
+        loadFeed.forEach(2, function() {
         $feedContentAfter = $('.feed').html();
         expect($feedContentBefore).not.toEqual($feedContentAfter);
         done();
