@@ -96,20 +96,29 @@ $(function() {
     });
   });
   /*  Write a new test suite named "New Feed Selection" */
-  describe('New Feed Selection', function() {
+  
+  describe(' (async)New Feed Selection', function() {
 
-    /*  Write a test that ensures when a new feed is loaded
+    var entry1;
+    var entry2;
+
+    beforeEach(function(done) {
+      loadFeed(0, function() {
+        entry1 = $('.feed').html();
+        loadFeed(1, function() {
+          entry2 = $('.feed').html();
+          done();
+        });
+      });
+    });
+    /* Write a test that ensures when a new feed is loaded
      * by the loadFeed function that the content actually changes.
      * Remember, loadFeed() is asynchronous.
      */
-    it('ensures when a new feed is loaded', function(done) {
-        loadFeed.forEach(2, function() {
-        $feedContentAfter = $('.feed').html();
-        expect($feedContentBefore).not.toEqual($feedContentAfter);
-        done();
-        var $feedContentBefore;
-        var $feedContentAfter;
-      });
+     it("changes to the appropriate content when a new feed is selected", function(done) {
+      expect(entry1).not.toEqual(entry2);
+      done();
     });
   });
+
 }());
